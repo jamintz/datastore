@@ -17,11 +17,12 @@
 
 <table>
 	<tr>
-		<th>Name</th>
+		<th>Connector</th>
 		<th>Definition</th>
 		<th></th>
 	</tr>
-	<% @field.connectors.each do |c| %>
+	<% @field.links.each do |l| %>
+	<% c = l.connector %>
 	<tr>
 		<td><%=c.name %></td>
 		<td><%=c.description %></td>
@@ -31,5 +32,4 @@
 </table>
 	
 
-<%= link_to 'Edit', edit_field_path(@field) %> |
-<%= link_to 'Back', fields_path %>
+<%= link_to 'Edit', edit_field_path(@field) %>

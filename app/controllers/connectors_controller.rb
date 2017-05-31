@@ -62,13 +62,13 @@ class ConnectorsController < ApplicationController
   end
   
   def add_field
-    f = Field.find_or_create_by(name:params['name'].gsub(' ','_').downcase)
+    f = Field.find_or_create_by(name:params['general_name'].gsub(' ','_').downcase)
     f.definition = params['definition'].capitalize
     f.datatype = params['datatype']
     f.save!
     c = Connector.find(params['connector'])
     
-    Link.find_or_create_by(connector_id:c.id,field_id:f.id)
+    Link.find_or_create_by(connector_id:c.id,field_id:f.id,specific_name:params['specific_name'])
     
     redirect_to c
   end

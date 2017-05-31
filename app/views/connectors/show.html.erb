@@ -12,6 +12,58 @@
   <strong>Description:</strong>
   <%= @connector.description %>
 </div>
+<div>
+  <strong>Cost:</strong>
+  <%= @connector.cost %>
+</div>
+<div>
+  <strong>Region:</strong>
+  <%= @connector.region %>
+</div>
+<div>
+  <strong>Inputs:</strong>
+  <%= @connector.inputs %>
+</div>
+<div>
+  <strong>Use Cases:</strong>
+  <%= @connector.use_cases %>
+</div>
+<div>
+  <strong>In Platform:</strong>
+  <%= @connector.gateway %>
+</div>
+<div>
+  <strong>End Use:</strong>
+  <%= @connector.end_use %>
+</div>
+<div>
+  <strong>Resale Use:</strong>
+  <%= @connector.resale_use %>
+</div>
+<div>
+  <strong>Test Resale Use:</strong>
+  <%= @connector.test_resale %>
+</div>
+<div>
+  <strong>Integrator Use:</strong>
+  <%= @connector.integrator_use %>
+</div>
+<div>
+  <strong>FCRA:</strong>
+  <%= @connector.fcra %>
+</div>
+<div>
+  <strong>Footprint:</strong>
+  <%= @connector.footprint %>
+</div>
+<div>
+  <strong>Server Region:</strong>
+  <%= @connector.server_region %>
+</div>
+<div>
+  <strong>Notes:</strong>
+  <%= @connector.notes %>
+</div>
 
 <%= link_to 'Edit', edit_connector_path(@connector) %> |
 <%= link_to 'Back', connectors_path %>
@@ -23,13 +75,16 @@
 <h3>Fields</h3>
 	<table>
 		<tr>
-			<th>Name</th>
+			<th>General Name</th>
+			<th>Specific Name</th>
 			<th>Description</th>
 			<th>Data Type</th>
 		</tr>
-		<% @connector.fields.each do |f| %>
+		<% @connector.links.each do |l| %>
+		<% f = l.field %>
 		<tr>
 			<td><%=f.name%></td>
+			<td><%=l.specific_name%></td>
 			<td><%=f.definition%></td>
 			<td><%=f.datatype%></td>
 	        <td><%= link_to 'Show', f %></td>

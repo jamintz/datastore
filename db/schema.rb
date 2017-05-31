@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531182214) do
+ActiveRecord::Schema.define(version: 20170531211623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,23 +19,40 @@ ActiveRecord::Schema.define(version: 20170531182214) do
     t.string   "name"
     t.string   "source"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.boolean  "fcra"
+    t.float    "cost"
+    t.boolean  "footprint"
+    t.string   "region"
+    t.string   "server_region"
+    t.boolean  "end_use"
+    t.boolean  "resale_use"
+    t.boolean  "integrator_use"
+    t.boolean  "test_resale"
+    t.boolean  "opt_in"
+    t.string   "inputs"
+    t.string   "use_cases"
+    t.text     "notes"
+    t.boolean  "gateway"
   end
 
   create_table "fields", force: :cascade do |t|
     t.string   "name"
     t.string   "definition"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "datatype"
+    t.string   "output_values"
   end
 
   create_table "links", force: :cascade do |t|
     t.integer  "field_id"
     t.integer  "connector_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "specific_name"
+    t.text     "specific_notes"
   end
 
 end
