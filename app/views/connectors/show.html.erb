@@ -1,19 +1,40 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<h3>Meta</h3>
+<div>
   <strong>Name:</strong>
   <%= @connector.name %>
-</p>
-
-<p>
+</div>
+<div>
   <strong>Source:</strong>
   <%= @connector.source %>
-</p>
-
-<p>
+</div>
+<div>
   <strong>Description:</strong>
   <%= @connector.description %>
-</p>
+</div>
 
 <%= link_to 'Edit', edit_connector_path(@connector) %> |
 <%= link_to 'Back', connectors_path %>
+
+<h3>New Field</h3>
+<%= render 'newfield'%>
+
+
+<h3>Fields</h3>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Data Type</th>
+		</tr>
+		<% @connector.fields.each do |f| %>
+		<tr>
+			<td><%=f.name%></td>
+			<td><%=f.definition%></td>
+			<td><%=f.datatype%></td>
+	        <td><%= link_to 'Show', f %></td>
+	        <td><%= link_to 'Edit', edit_field_path(f) %></td>
+	        <td><%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>

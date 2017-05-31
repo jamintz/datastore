@@ -60,6 +60,18 @@ class ConnectorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def add_field
+    f = Field.find_or_create_by(name:params['name'].gsub(' ','_').downcase)
+    f.definition = params['definition'].capitalize
+    f.datatype = params['datatype']
+    f.save!
+    c = Connector.find(params['connector'])
+    
+    Link.find_or_create_by(connector_id:c.id,field_id:f.id)
+    
+    redirect_to c
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -24,7 +24,7 @@ class FieldsController < ApplicationController
   # POST /fields
   # POST /fields.json
   def create
-    @field = Field.new(field_params)
+    @field =  Field.new(field_params)
 
     respond_to do |format|
       if @field.save
@@ -69,6 +69,6 @@ class FieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_params
-      params.require(:field).permit(:name, :definition, :type)
+      params.require(:field).permit(:name, :definition, :datatype)
     end
 end
