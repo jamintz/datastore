@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @connector.name %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @connector.source %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @connector.description %>
+</p>
+
+<%= link_to 'Edit', edit_connector_path(@connector) %> |
+<%= link_to 'Back', connectors_path %>

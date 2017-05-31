@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Field:</strong>
+  <%= @link.field_id %>
+</p>
+
+<p>
+  <strong>Connector:</strong>
+  <%= @link.connector_id %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
