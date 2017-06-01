@@ -12,16 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :field_id %>
-    <%= f.number_field :field_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :connector_id %>
-    <%= f.number_field :connector_id %>
+    <%= f.label :specific_name %>
+    <%= f.text_field :specific_name %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update' %>
   </div>
 <% end %>

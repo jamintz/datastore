@@ -88,8 +88,8 @@
 			<td><%=f.definition%></td>
 			<td><%=f.datatype%></td>
 	        <td><%= link_to 'Show', f %></td>
-	        <td><%= link_to 'Edit', edit_field_path(f) %></td>
-	        <td><%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	        <td><%= link_to 'Edit', edit_link_path(l) %></td>
+	        <td><%= link_to 'Delete', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>
 	</table>
